@@ -1,6 +1,6 @@
 # =============================================================================
 # Random Forest Regression in Python using Scikit-Learn
-# Program wrote by Igor Melo, September 20.
+# Program wrote by Igor Melo.
 # This program wants to predict a new salary training a random forest regression
 # model. The data set is composed by 3 columns: Name Position, Level Position and
 # Salary. We just consider the two last.

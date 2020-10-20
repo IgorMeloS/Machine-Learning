@@ -1,6 +1,6 @@
 # =============================================================================
 # Decision Tree Regression in Python using Scikit-Learn
-# Program wrote by Igor Melo, September 20
+# Program wrote by Igor Melo.
 # In this program we predict the salaries based on level position. Following
 # the dataset we can see that the relation between salary and position is not
 # linear. We propose a decision tree method to predictic new salaries

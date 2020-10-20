@@ -1,7 +1,6 @@
 # =============================================================================
 # Support Vector Regression (SVR) in Python using ScikitLearn
-# Program wrote by Igor Melo
-# August, 2020
+# Program wrote by Igor Melo.
 # In this program we predict the salaries based on level position. Following
 # the dataset we can see that the relation between salary and position is not
 # linear, for this reason we implement a SVR to predict.
