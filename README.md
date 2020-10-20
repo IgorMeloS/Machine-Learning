@@ -1,6 +1,6 @@
 ## Machine Learning
 
-This folder contains some Machine Learn Models according the type of problem. In each folder we found a simple program to explain in details the algorithms and implementations referent to the model. Also I present somo real cases to verify all the models.
+This folder contains some Machine Learn Models according the type of problem. In each folder we found a simple program to explain in details the algorithms and implementations referent to the model. Also I present somo real cases in the selection model folder.
 
 This repository is organized in follow order
 
