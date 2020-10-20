@@ -83,3 +83,4 @@ X_test[:, 3:] = sc.fit(X_test[:, 3:])
 # case demands its specificities, with this objects we can explore it.
 # From here, you can code your manchine learn model. Let's do it.
 # =============================================================================
+print('test')
