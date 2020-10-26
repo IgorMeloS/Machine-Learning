@@ -23,9 +23,7 @@ ads_select = []
 number_of_rewards_1 = [0] * d
 number_of_rewards_0 = [0] * d 
 total_reward = 0
-
-type(number_of_rewards_0)
-
+# Making the random relations
 for n in range(0, N):
   ad = 0
   max_random = 0
@@ -48,3 +46,6 @@ plt.hist(ads_select)
 plt.title('Histogram of ads selection')
 plt.xlabel('Ads')
 plt.ylabel('Number of times each ad was selected')
+# =============================================================================
+# In this fucking problem, this fucking code.
+# =============================================================================
