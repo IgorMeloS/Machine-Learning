@@ -3,7 +3,7 @@
 # Program wrote by Igor Melo.
 # August, 2020.
 # This program is a simple exemple to domonstre how to take care about dataset,
-# we consider a dataset composed by 4 columns and 10 lines. The colums are in 
+# we consider a dataset composed by 4 columns and 10 lines. The colums are in
 # order: Country, Age, Salary and Purchased.
 # Library for Machine Learn: SciKitLearn.
 # =============================================================================
@@ -27,8 +27,8 @@ y = dataset.iloc[:,-1].values
 # The three first columns we consider like independent variables.
 
 # Missing data (In the columns 1 and 2 we have the nan values, we need to change it)
-# If your dataset presents this problem, you can use sklearn.impute object and 
-# SimpleImputer class. This class has a function to replace the nan values 
+# If your dataset presents this problem, you can use sklearn.impute object and
+# SimpleImputer class. This class has a function to replace the nan values
 # using many strategies, as mean and deviantion.
 
 from sklearn.impute import SimpleImputer
@@ -36,16 +36,16 @@ imputer = SimpleImputer(missing_values=np.nan, strategy='mean')
 imputer.fit(X[:, 1:3])
 X[:, 1:3] = imputer.transform(X[:, 1:3])
 
-# In our data we have the column Country. This impose to us a problem, variables 
+# In our data we have the column Country. This impose to us a problem, variables
 # like tuple must be transformed in numbers, to do it, we utilize the categorical
-# data. Objects to use: sklearn.compose (class: ColumnTransform) and 
+# data. Objects to use: sklearn.compose (class: ColumnTransform) and
 # sklearn.preprocessing (class: OneHotEncoder)
 
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import OneHotEncoder
 ct = ColumnTransformer(transformers=[('encoder', OneHotEncoder(), [0])], remainder='passthrough')
 X = np.array(ct.fit_transform(X))
-# Now we have the countries in three differents columns, each column represents 
+# Now we have the countries in three differents columns, each column represents
 # a country with the value 1 otherwise 0.
 
 # In our case, the dependent variable is represented by 'yes' or 'no'.  We change
@@ -66,7 +66,7 @@ y = le.fit_transform(y)
 from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state =1)
 
-# The last action to finish the data preprocessing is the transformation of some 
+# The last action to finish the data preprocessing is the transformation of some
 # inpendent values. In fact, we make a Standalization to have the same dependent
 # variable magnitude. Object sklearn.preprocessing (class: StandardScaler)
 
@@ -79,7 +79,7 @@ X_test[:, 3:] = sc.fit(X_test[:, 3:])
 # This code is a simple exemple and serve as basic guide to data preprocessing
 # using SciKitLearn. Is possible possible that we do not use all objects presented
 # in every model. But the basic to start a good model is here. We can explore more
-# about each class and yours functions, but here is a simple introduction. Each 
+# about each class and yours functions, but here is a simple introduction. Each
 # case demands its specificities, with this objects we can explore it.
 # From here, you can code your manchine learn model. Let's do it.
 # =============================================================================
