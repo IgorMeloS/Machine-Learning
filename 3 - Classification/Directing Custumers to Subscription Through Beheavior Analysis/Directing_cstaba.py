@@ -83,7 +83,7 @@ sns.heatmap(corr, mask=mask, annot=True, cmap=cmap, vmax=1, center=0,
 
 """## Feature engineering - Response"""
 
-dataset.dtypes
+
 # The dates are objects, we need to change it. One reason is, we can calculate the difference between the first open and the enrolled date.
 # This differece can be visualised in a distribution.
 
@@ -105,7 +105,7 @@ dataset["difference"] = (dataset.enrolled_date-dataset.first_open).astype('timed
 
 # Making an histogram to visualize the relation between  the hour difference and enrolled variables. With this we can select the time for the response
 
-response_hist = plt.hist(dataset['difference'].dropan(), color= '#3F5D7')
+response_hist = plt.hist(dataset['difference'].dropna(), color= '#3F5D7D')
 plt.title('Distribution of Time-Since-Screan-Reached')
 
 
