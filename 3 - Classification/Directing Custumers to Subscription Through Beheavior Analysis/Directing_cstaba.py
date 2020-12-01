@@ -25,22 +25,28 @@ from dateutil import parser
 """# Importing Dataset"""
 
 dataset = pd.read_csv('appdata10.csv')
-dataset.shape
 
-dataset.dtypes
+dataset.shape # the dataset is composed by 50000 rows and 12 columns
 
-dataset.head()
+dataset.dtypes # checking the types of variables
 
-dataset['hour'] = dataset.hour.str.slice(1,3).astype(int) # the values in the column hours are object variable we need to change it
+dataset.head() # Visualizing the head of dataset
 
-dataset.describe()
+dataset['hour'] = dataset.hour.str.slice(1,3).astype(int) # the values in the column hours are object variable we need to change it into integer variable
 
+dataset.describe() # Some descriptions about the dataset
+
+# Analizing the Numercial variables
+
+# We make a new dataset to analyze the numerical variables
 dataset2 = dataset.copy().drop(columns = ['user', 'screen_list', 'first_open', 'enrolled', 'enrolled_date'])
 
 dataset2.head()
 
+# Plotting the histogram
+
 plt.figure(figsize=(20,10))
-plt.suptitle('Histograms of numerical variables', fontsize = 20,)
+plt.suptitle('Histograms of numerical variables', fontsize = 10,)
 for i in range(1, dataset2.shape[1] + 1):
 
   plt.subplot(3, 3, i)
@@ -50,12 +56,14 @@ for i in range(1, dataset2.shape[1] + 1):
   plt.hist(dataset2.iloc[:, i-1], bins= vals, color = '#3F5D7D' )
 
 """## Correlation Plot"""
+# We want to see the correletion between numerical values and the response (enrolled 0 or 1)
 
 dataset.corrwith(dataset.enrolled).plot.bar(figsize = (20,10),
                                             title = 'Correlation with reponse variable',
                                             fontsize = 15, rot = 45, grid = True, color = '#5F5D7D')
 
 """## Correlation Matrix"""
+# Correletion between the numerical values
 
 sns.set(style='white', font_scale= 1)
 corr = dataset2.corr() # here we compute the correlation between numericals variables
@@ -70,6 +78,7 @@ cmap = sns.diverging_palette(10, 0, as_cmap=True)
 # Draw the heatmap with the mask and the correct aspect ratio
 sns.heatmap(corr, mask=mask, annot=True, cmap=cmap, vmax=1, center=0,
             square=True, linewidth=5, cbar_kws={'shrink': .5})
+#### Explanation about the matrix of correlation ####
 
 """## Feature engineering - Response"""
 
@@ -79,7 +88,16 @@ dataset.dtypes
 
 """### Transforming the dates into numerical dates"""
 
-dataset['first_open']=[parser.parser(row_data) for row_data in dataset['first_open']]
-dataset['enrolled_date']=[parser.parser(row_data) if isinstance(row_data, str) else row_data for row_data in dataset['enrolled_date']]
+dataset['first_open']=[parser.parser(row_data) for row_data in dataset['first_open']] # Parser convert the date
+dataset['enrolled_date']=[parser.parser(row_data) if isinstance(row_data, str) else row_data for row_data in dataset['enrolled_date']] # We utilize if because there are lines in the colums that do not have values
 
-dataset['difference'] = (dataset.enrolled_date - dataset.first_open).astype('timedelta64[h]')
+# Creating a new column for the difference between enrolled_date and first_open
+
+dataset['difference'] = (dataset.enrolled_date - dataset.first_open).astype('timedelta64[h]') # Here we chose hour as unit
+
+# Making an histogram to visualize the relation between  the hour difference and enrolled variables. With this we can select the time for the response
+
+response_hist = plt.hist(dataset['difference'].dropan(), color= '#3F5D7')
+plt.title('Distribution of Time-Since-Screan-Reached')
+
+
