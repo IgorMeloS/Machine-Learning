@@ -17,10 +17,11 @@ The answer for this question is simple, we construct a model of classification b
 """
 
 import pandas as pd
+from dateutil import parser
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-from dateutil import parser
+
 
 """# Importing Dataset"""
 
@@ -88,12 +89,19 @@ dataset.dtypes
 
 """### Transforming the dates into numerical dates"""
 
-dataset['first_open']=[parser.parser(row_data) for row_data in dataset['first_open']] # Parser convert the date
-dataset['enrolled_date']=[parser.parser(row_data) if isinstance(row_data, str) else row_data for row_data in dataset['enrolled_date']] # We utilize if because there are lines in the colums that do not have values
+dataset["first_open"] = [parser.parse(row_date) for row_date in dataset["first_open"]]
+dataset["enrolled_date"] = [parser.parse(row_date) if isinstance(row_date, str) else row_date for row_date in dataset["enrolled_date"]]
+dataset.dtypes
+
+# Selecting Time For Response
+dataset["difference"] = (dataset.enrolled_date-dataset.first_open).astype('timedelta64[h]')
+
+#dataset['first_open']=[parser.parser(row_data) for row_data in dataset['first_open']] # Parser convert the date
+#dataset['enrolled_date']=[parser.parser(row_data) if isinstance(row_data, str) else row_data for row_data in dataset['enrolled_date']] # We utilize if because there are lines in the colums that do not have values
 
 # Creating a new column for the difference between enrolled_date and first_open
 
-dataset['difference'] = (dataset.enrolled_date - dataset.first_open).astype('timedelta64[h]') # Here we chose hour as unit
+#dataset['difference'] = (dataset.enrolled_date - dataset.first_open).astype('timedelta64[h]') # Here we chose hour as unit
 
 # Making an histogram to visualize the relation between  the hour difference and enrolled variables. With this we can select the time for the response
 
