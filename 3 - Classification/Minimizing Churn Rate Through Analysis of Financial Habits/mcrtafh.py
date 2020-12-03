@@ -369,3 +369,33 @@ grid2 = GridSearchCV(classifier7, param_grid2, cv = 10, verbose = 4)
 
 class_boost_1 = grid1.fit(X_train,y_train)
 class_boost_2 = grid2.fit(X_train,y_train)
+
+"""## Predicting boosted results"""
+
+boost_predictions1 = class_boost_1.predict(X_test)
+boost_predictions2 = class_boost_2.predict(X_test)
+
+"""## Analizing the new boosted results (Confusion Matrix and Rapport Score)"""
+
+cmb1 = confusion_matrix(y_test, boost_predictions1)
+cmb2 = confusion_matrix(y_test, boost_predictions2)
+
+sns.heatmap(cmb1, annot=True)
+print(classification_report(y_test,boost_predictions1))
+print('The best parameters for Logistic Regression:')
+print(grid1.best_params_)
+print('\n')
+print('Confusion Matrix')
+
+print('Average Accuracy {:.2f}%'.format(grid1.best_score_ * 100))
+print('Standard Deviation {:.2f}%'.format(grid1.cv_results_['std_test_score'][grid1.best_index_] * 100))
+
+sns.heatmap(cmb2, annot=True)
+print(classification_report(y_test,boost_predictions2))
+print('Random Forest Classification:')
+print(grid2.best_params_)
+print('\n')
+print('Confusion Matrix')
+
+print('Average Accuracy {:.2f}%'.format(grid2.best_score_ * 100))
+print('Standard Deviation {:.2f}%'.format(grid2.cv_results_['std_test_score'][grid2.best_index_] * 100))
