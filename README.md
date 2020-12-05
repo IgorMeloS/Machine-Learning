@@ -6,12 +6,12 @@ In this field, we have different applicability that require different algorithm 
 
 This repository is organized in the follow order
 
-# 1 - Data preprocessing
-# 2 - Linear Regression
-# 3 - Classification
-# 4 - Clustering
-# 5 - Association Rules
-# 6 - Reiforcement Learn
-# 7 - Neutral Language Processing
+## 1 - Data preprocessing
+## 2 - Linear Regression
+## 3 - Classification
+## 4 - Clustering
+## 5 - Association Rules
+## 6 - Reiforcement Learn
+## 7 - Neutral Language Processing
 
-# Note: All folders above contain commented codes inside the folder called Models Explanation. I don’t present a  mathematical explanation of each algorithm, it is not the objective here, but I write briefly how I understand the algorithm and how I apply it in Python.
+### Note: All folders above contain commented codes inside the folder called Models Explanation. I don’t present a  mathematical explanation of each algorithm, it is not the objective here, but I write briefly how I understand the algorithm and how I apply it in Python.
