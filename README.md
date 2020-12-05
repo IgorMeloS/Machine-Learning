@@ -1,6 +1,8 @@
 # Machine Learning 
 
-This folder contains some Machine Learn Models according the type of problem. In each folder we found a simple program to explain in details the algorithms and implementations referent to the model. Also I present somo real cases in the selection model folder.
+In this folder, I present some Machine Learning models that are part of my training. To build a Machine Learning model some steps are important, such as the problem’s analysis, feature engineering and model selection. Each of these steps are presented in this folder.
+
+In this field, we have different applicability that require different algorithm models. Some of these algorithms are presented here according with type of problem. The Machine Learning models covered in this folder are: Linear Regression, Classification, Clustering, Association Rules, Reinforcement Learn, Neutral Language  Processing. 
 
 This repository is organized in follow order
 
