@@ -6,8 +6,7 @@ In this field, we have different applicability that require different algorithm 
 
 This repository is organized in the follow order
 
-## [1 - Data preprocessing]:https://github.com/IgorMeloS/Machine-Learning/tree/master/1%20-%20Data%20Preprocessing
-## 2 - Linear Regression
+## [1 - Data preprocessing](https://github.com/IgorMeloS/Machine-Learning/tree/master/1%20-%20Data%20Preprocessing)
 ## 3 - Classification
 ## 4 - Clustering
 ## 5 - Association Rules
