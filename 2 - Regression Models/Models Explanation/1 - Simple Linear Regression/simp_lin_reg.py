@@ -70,7 +70,7 @@ plt.title('Salary vs Experience (Test set)')
 plt.scatter(X_test, y_test, color = 'red')
 plt.plot(X_test, y_pred_test, color = 'blue')
 plt.xlabel('Years of Experience')
-plt.ylabel.('Salary')
+plt.ylabel('Salary')
 
 # =============================================================================
 # This program was a simple demonstration of a simple linear regression model.
