@@ -43,10 +43,10 @@ from sklearn.linear_model import LinearRegression # Class and object
 regressor = LinearRegression() # Creating the object
 regressor.fit(X_train, y_train) # Training the model, X_train and y_train
 
-"""### Predicting New Results
+### Predicting New Results
 
-Once time our model is trained, we can predict new values. To do it, we utilize the attribute .predict
-"""
+# Once time our model is trained, we can predict new values. To do it, we utilize the attribute .predict
+
 
 y_pred = regressor.predict(X_test) # Creating new variable to allocate the predicted results
 print(np.concatenate((y_pred.reshape(len(y_pred),1), y_test.reshape(len(y_test),1)), 1)) # To compare predict and real results
@@ -55,12 +55,12 @@ print(np.concatenate((y_pred.reshape(len(y_pred),1), y_test.reshape(len(y_test),
 print(regressor.coef_)
 print(regressor.intercept_)
 
-"""The linear model constucted by the linear regression is represented by $Y(X) = 25609.89799835482 + 9332.94473799*X$, this equation is the predicted curve.
+# The linear model constucted by the linear regression is represented by $Y(X) = 25609.89799835482 + 9332.94473799*X$, this equation is the predicted curve.
 
 ### Visualizing the predicted curve with the real model
 
 #### Training Set
-"""
+
 
 plt.figure() # Creating the figure
 plt.scatter(X_train, y_train, color = 'red') #Scatter Plot for the training set, the points distributed 
@@ -70,7 +70,7 @@ plt.xlabel('Years of Experience')
 plt.ylabel('Salary')
 plt.show()
 
-"""#### Test Set"""
+#### Test Set
 
 plt.figure() # Creating the figure
 plt.scatter(X_test, y_test, color = 'red') #Scatter Plot for the test set, the points distributed 
@@ -80,7 +80,10 @@ plt.xlabel('Years of Experience')
 plt.ylabel('Salary')
 plt.show()
 
-"""## Conclusion
+## Conclusion
 
-This program is a little demonstration of a simple linear regression model. The results are satisfactory with good predictions. We can employ it in others practical example and make a good predictions when you have a linear problem. It can be very useful in a take decision process, profit optimization and other examples in the real world.
-"""
+# This program is a little demonstration of a simple linear regression model. 
+# The results are satisfactory with good predictions. We can employ it in others 
+# practical example and make a good predictions when you have a linear problem. 
+# It can be very useful in a take decision process, profit optimization and other 
+# examples in the real world.
